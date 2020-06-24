@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<section class="section db p120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="tagline-message page-title text-center">
+                            <h3> Schedules </h3>
+                        </div>
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </section><!-- end section -->
+{% for Data in data %}
+        <section class="section gb nopadtop">
+            <div class="container">
+                <div class="boxed">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="content blog-list">
+                                <div class="blog-wrapper clearfix">
+                                    <div class="blog-meta">
+                                        <small><a href="#">{{Data.category}}</a></small>
+                                        <h3>{{Data.title}}</h3>
+                                        <ul class="list-inline">
+                                            <li><span>written by</span> <a href="#">Fitnessdoze Team</a></li>
+                                        </ul>
+                                    </div><!-- end blog-meta -->
+
+                                    <div class="blog-media">
+                                        <img src="{{Data.imagelinksched}}" alt="" class="img-responsive img-rounded">
+                                    </div><!-- end media -->
+
+                                    <div class="blog-desc-big">
+                                        <p> {{Data.content}} </p>
+
+                                        <hr class="invis">
+
+                                        <div class="tags-widget">   
+                                            <!-- <ul class="list-inline">
+                                                <li><a href="#"></a></li>
+                                                <li><a href="#"></a></li>
+                                                <li><a href="#"></a></li>
+                                                <li><a href="#"></a></li>
+                                            </ul> -->
+                                        </div><!-- end list-widget -->
+
+                                    </div><!-- end desc -->
+                                </div><!-- end blog -->
+                            </div><!-- end content -->
+
+                            <!-- <div class="authorbox">
+                                <div class="site-publisher clearfix">
+                                    <img src="upload/people_10.jpeg" alt="" class="img-responsive img-circle">
+                                    <a href="single-agency.html" title=""><h4><small>about</small> <span>Martin Martines</span></h4></a>
+                                    <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth.</p>
+
+                                    <div class="authorbox-social">
+                                        <ul class="list-inline">
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
+                                        </ul>end list -->
+                                    <!-- </div>end share -->
+                                <!-- </div>end publisher -->
+                            <!-- </div>end details -->                   
+                         </div>
+                    </div>
+                    </div>
+                    </div>
+                    </section>
+                    {% endfor %}
+{% endblock %}

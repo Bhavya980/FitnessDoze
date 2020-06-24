@@ -1,0 +1,55 @@
+
+{% extends 'adminpanel.html' %}
+
+{%  block adminpanel %}
+
+        <div class="col-md-9 paddingpanel">
+            <h2>Published</h2>
+                {% for Data in data %}
+                <div class="card" >
+                    <div class="row">
+                        <div class = "col-sm-9">
+                            <div class="card-header card-title">
+                                {{Data.blogtitle}}
+                            </div>
+                            <div class="card-body card-body-text" >
+                                <!-- <h3 class="card-title">{{Data.Title}} Title of blog post</h3> -->
+                                <h6>{{Data.category}}</h6>
+                                <p class="card-text" style="width:100%">{{Data.content}} </p>
+                                <div class="row card-bottom" >
+                                    <div class="col-md-4">
+                                        <form class ="big-contact-form" action="/updatepost/{{Data.id}}" method="POST">
+                                            <button type="submit"  class="btn btn-primary">Edit</button> 
+                                        </form>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <form class ="big-contact-form" action="/deletepost/{{Data.id}}" method="POST">
+                                            <button type="submit"  class="btn btn-primary">Delete</button> 
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <label>Image</label>
+                            <p><img src="{{Data.imagelinkblog}}" alt="fitnessdoze" style="width:150px;height:150px;"></p>
+                            <div class="col-md-12">
+                                    <form class ="big-contact-form" action="/updateimgb/{{Data.id}}" method="POST">
+                                        <button type="submit"  class="btn btn-primary">Edit</button> 
+                                    </form>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            {%endfor%}
+        </div>
+                    
+
+        <div class="col-sm-2 paddingpanel">
+            <form class ="big-contact-form" action="/adminblog" method="GET">
+                <button type="submit" class="btn btn-primary" margin-right="0">CREATE POST</button>
+            </form>
+        </div>
+
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+        <section class="section db p120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="tagline-message page-title text-center">
+                            <h3>Schedule</h3>
+                        </div>
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </section><!-- end section -->
+
+        <section class="section gb nopadtop">
+            <div class="container">
+                <div class="boxed boxedp4">
+                    <div class="row blog-grid">
+                        {% for Data in data %}
+                        <div class="col-md-6">
+                            <div class="card" style="width: 30rem;">
+                                <img class="card-img-top" src="{{Data.imagelinksched}}" alt="Card image cap" style="width:100%">
+                                <div class="card-body">
+                                  <h5 class="card-title">{{Data.title}}</h5>
+                                  <p class="card-text" style="width:100%"></p>{{Data.content}}</p>
+                                  <form class ="big-contact-form" action="/schedulesingle/{{Data.id}}" method="POST">
+                                    <button type="submit"  class="btn btn-primary">Read More</button>
+                                  </form>
+                                </div>
+                              </div>    
+                              <div class="course-footer clearfix">
+                                    <div class="pull-left">
+                                        <ul class="list-inline">
+                                                <li><i class="fa fa-tag">{{Data.category}}</i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div><!-- end row -->
+
+                    <hr class="invis">
+
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <!-- <ul class="pagination ">
+                                <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
+                                <li class="active"><a href="javascript:void(0)">1</a></li>
+                                <li><a href="javascript:void(0)">2</a></li>
+                                <li><a href="javascript:void(0)">3</a></li>
+                                <li><a href="javascript:void(0)">...</a></li>
+                                <li><a href="javascript:void(0)">&raquo;</a></li>
+                            </ul> -->
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end boxed -->
+            </div><!-- end container -->
+        </section>
+
+        {% endblock %}

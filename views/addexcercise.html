@@ -1,0 +1,36 @@
+{% extends 'adminpanel.html' %}
+
+{%  block adminpanel %}
+
+        <div class="col-md-7 paddingpanel">
+                {% if errors %}
+                {% for Errors in errors %}
+                <div class="alert alert-danger">{{Errors.msg}}</div>
+                {% endfor %}
+                {% endif %}
+                <div class="card paddingcard">
+                <form class ="big-contact-form" action="/addexcercise" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                        <label>Exercise Name</label>
+                        <input type="text" name="excname" class="form-control" required/>
+                        <label >category</label>
+                        <select name="category" required>
+                          <option value="Weight Training">Weight Training</option>
+                          <option value="Cardio">Cardio</option>
+                          <option value="Yoga">Yoga</option>
+                        </select>
+                        <br>
+                <label >Description</label>
+                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                <label>Image</label>
+                <input name="file" type="file" class="form-control" placeholder="choose file...." >
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+            </div>
+        </div>
+
+{% endblock %}
+
+
+

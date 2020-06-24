@@ -1,0 +1,52 @@
+
+{% extends 'layout.html' %}
+
+{% block content %}
+
+        <section class="section db p120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="tagline-message page-title text-center">
+                            <h3>FitnessDoze</h3>
+                            <ul class="breadcrumb">
+                                <!-- <li><a href="javascript:void(0)">FitnessDoze</a></li> -->
+                                <li class="active">Keep Your Fitness Doze High!!</li>
+                            </ul>
+                        </div>
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </section><!-- end section -->
+
+        <section class="section gb nopadtop">
+            <div class="container">
+                <div class="boxed boxedp4">
+                   <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="section-title text-center">
+                                <h3>Sign Up</h3>
+                                <p>Get personalised workout and diet schedules specially prepared by our experts.</p>
+                            </div><!-- end title -->
+                            {% if errors %}
+                            {% for Errors in errors %}
+                            <div class="alert alert-danger">{{Errors.msg}}</div>
+                            {% endfor %}
+                            {% endif %}
+                            <form class="big-contact-form" action="signup" method="POST" > 
+                                <input type="text" class="form-control" placeholder="Enter username.." name="name" required>
+                                <input type="email" class="form-control" placeholder="Enter email.." name="email" required>
+                                <!-- <input type="text" class="form-control" placeholder="Your phone.." name="phn"> -->
+                                <input type="password" class="form-control" placeholder="password" name="password" required>
+                                <input type="password" class="form-control" placeholder="confirm password" name="password2" required>
+                                <!-- <input name="file" type="file" class="form-control" placeholder="choose file...." > -->
+                                <!-- <input type="hidden" name="_csrf" value="{{csrfToken}}"> -->
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end container -->
+            </div>
+        </section>
+
+        {% endblock %}

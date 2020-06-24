@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="section db p80">
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tagline-message page-title text-center">
+                    <h3>Admin Panel</h3>
+                </div>
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end section -->
+<section class="section">
+    
+        <div class="row">
+          <div class="col-sm-3">
+              <ul class="list-group list-group-flush">
+                  <li class="list-group-item-card list-group-item"><a class="btn-my-class">Menu</a></li>
+                  <li class="list-group-item-card list-group-item" ><a href="/blogpost" class="btn-my-class">Blog</a></li>
+                  <li class="list-group-item-card list-group-item" ><a href="/excercisepanel" class="btn-my-class">Exercises</a></li>
+                  <li class="list-group-item-card list-group-item" ><a href="" class=" btn-my-class">Schedules</a></li>
+                  <li class="list-group-item-card list-group-item" ><a href="/admingymlistpanel" class=" btn-my-class">Gyms</a></li>
+                </ul>
+          </div>
+          <div class="col-sm-7">
+             
+            <h4>Uploaded</h4>
+            {% for Data in data %}
+              <div class="card">
+                  <div class="card-header">
+                    {{Data.excname}}
+                  </div>
+                  <div class="card-body">
+                    <!-- <h3 class="card-title">{{Data.Title}} Title of blog post</h3> -->
+                    <h6>{{Data.category}}</h6>
+                    <p class="card-text">{{Data.description}} </p>
+                    <form class ="big-contact-form" action="/updateexcercise/{{Data.id}}" method="POST">
+                    <button type="submit"  class="btn btn-primary">Edit</button> 
+                  </form>
+                  <form class ="big-contact-form" action="/deleteexc/{{Data.id}}" method="POST">
+                  <button type="submit"  class="btn btn-primary">Delete</button> 
+                  </form>
+                  </div>
+                </div>
+                {%endfor%}
+              </div>
+              <div class="col-sm-2">
+                  <form class ="big-contact-form" action="/addexcercise" method="GET">
+                    <button type="submit" class="btn btn-primary" margin-right="0">ADD EXCERCISE</button>
+                  </form>
+              </div>
+         
+          </div> 
+        
+    </section>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{%  block content %}
+<section class="section db p120">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tagline-message page-title text-center">
+                        <h3>Excercise</h3>
+                    </div>
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </section><!-- end section -->
+
+    <section class="section gb nopadtop">
+        <div class="container">
+            <div class="boxed boxedp4">
+                <div class="row blog-grid">
+        <div class="col-md-7 paddingpanel">
+                {% for Data in data %}
+                <div class="card  paddingcard">
+                <form class ="big-contact-form" action="/updategymimg" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                <label>Image</label>
+                <input name="file" type="file" class="form-control" placeholder="choose file...." required> 
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+        </div>
+            {%endfor%}
+              </div>
+            </div><!-- end row -->
+        </div><!-- end boxed -->
+    </div><!-- end container -->
+</section>      
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'adminpanel.html' %}
+
+{%  block adminpanel %}
+
+        <div class="col-md-7 paddingpanel">
+                {% for Data in data %}
+                <div class="card  paddingcard">
+                <form class ="big-contact-form" action="/updateblogimg/{{Data.id}}" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                <label>Image</label>
+                <input name="file" type="file" class="form-control" placeholder="choose file...." required> 
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+        </div>
+            {%endfor%}
+              </div>
+              
+{% endblock %}

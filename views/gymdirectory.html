@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+        <section class="section db p120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="tagline-message page-title text-center">
+                            <h3>Gyms</h3>
+                        </div>
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </section><!-- end section -->
+
+        <section class="section gb nopadtop">
+            <div class="container">
+                <div class="boxed boxedp4">
+                    <div class="row blog-grid">
+                        {% for Data in data %}
+                        <div class="col-md-6">
+                            <div class="card" style="width: 30rem;">
+                                <img class="card-img-top" src="{{Data.imagelinkgym}}" style="width:100%" alt="Card image cap">
+                                <div class="card-body">
+                                  <h3 class="card-title" style="width:100%"><a href="{{Data.website}}" class="card-link">{{Data.gymname}}</a></h3>
+                                  <label class="spaceleft">Adress:</label>
+                                  <p class="card-text"style="width:100%">{{Data.area}} , {{Data.city}}</p>
+                                  <!-- <p class="card-text"style="width:100%">{{Data.city}}</p> -->
+                                  <p class="card-text"style="width:100%">{{Data.state}}</p>
+                                  <label class="spaceleft">Contact Details:</label>
+                                  <p class="card-text"style="width:100%">{{Data.email}}</p>
+                                  <p class="card-text"style="width:100%">{{Data.contactno}}</p>
+                                </div>
+                                <!-- <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"style="width:100%"><label>Email:</label> {{Data.email}} </li>
+                                  <li class="list-group-item"style="width:100%"><label>Contact No:</label> {{Data.contactno}} </li>
+                                </ul> -->
+                                <div class="card-body">
+                                  <a href="{{Data.website}}" class="card-link">{{Data.website}}</a>
+                                </div>
+                              </div>
+                        </div>
+                        {% endfor %}
+                        <!-- <div class="col-md-4">
+                                <form class ="big-contact-form" action="/searchgym" method="POST">
+                                    <div class="form-group">
+                                <input type="text" name="search" placeholder="enter area...">
+                                <br>
+                                <button type="submit" class="btn btn-primary">Search</button>
+              </div>
+            </form> -->
+                        </div>
+                    </div><!-- end row -->
+                    
+                    <hr class="invis">
+
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <!--  -->
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end boxed -->
+            </div><!-- end container -->
+        </section>
+
+        {% endblock %}

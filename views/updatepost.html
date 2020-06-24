@@ -1,0 +1,36 @@
+
+{% extends 'adminpanel.html' %}
+
+{%  block adminpanel %}
+
+        <div class="col-md-7 paddingpanel">
+                {% for Data in data %}
+                <div class="card paddingcard" >
+                <form class ="big-contact-form" action="/updateblog/{{Data.id}}" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" name="blogtitle" class="form-control" value="{{Data.blogtitle}}" required/>
+                        <label >category</label>
+                        <select name="category">
+                            <option value="{{Data.category}}">{{Data.category}}</option>
+                          <option value="Excercise">Excercise</option>
+                          <option value="Body">Body</option>
+                          <option value="Diet">Diet</option>
+                          <option value="Nutrition">Nutrition</option>
+                          <option value="Gyms">Gyms</option>
+                        </select>
+                        <br>
+                <label >content</label>
+                <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="3" required>{{Data.content}}</textarea>
+                <!-- <input name="file" type="file" class="form-control" placeholder="choose file...." required> -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+            </div>
+            {%endfor%}
+              </div>
+
+{% endblock %}
+
+
+

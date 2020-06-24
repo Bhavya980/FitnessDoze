@@ -1,0 +1,36 @@
+{% extends 'adminpanel.html' %}
+
+{%  block adminpanel %}
+
+        <div class="col-md-7 paddingpanel">
+                {% if errors %}
+                {% for Errors in errors %}
+                <div class="alert alert-danger">{{Errors.msg}}</div>
+                {% endfor %}
+                {% endif %}
+                <div class="card paddingcard">
+                <form class ="big-contact-form" action="/addschedule" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                        <label>Schedule Title</label>
+                        <input type="text" name="scheduletitle" class="form-control" required/>
+                        <label >category</label>
+                        <select name="category" required>
+                          <option value="Fitness Plan">Fitness Plan</option>
+                          <option value="Diet Plan">Diet Plan</option>
+                        </select>
+                        <br>
+                <label >Description</label>
+                <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                <label>Image</label>
+                <input name="file" type="file" class="form-control" placeholder="choose file...." >
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+         </div>
+              
+{% endblock %}
+
+
+
+

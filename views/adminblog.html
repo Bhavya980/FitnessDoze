@@ -1,0 +1,32 @@
+{% extends 'adminpanel.html' %}
+
+{%  block adminpanel %}
+
+        <div class="col-md-9 paddingpanel">
+          <div class="card paddingcard">
+                <form class ="big-contact-form" action="/createpost" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" name="blogtitle" class="form-control" required/>
+                        <label >category</label>
+                        <select name="category" required>
+                          <option value="Excercise">Excercise</option>
+                          <option value="Body">Body</option>
+                          <option value="Diet">Diet</option>
+                          <option value="Nutrition">Nutrition</option>
+                          <option value="Gyms">Gyms</option>
+                        </select>
+                        <br>
+                <label >content</label>
+                <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                <label>Image</label>
+                <input name="file" type="file" class="form-control" placeholder="choose file...." >
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+  {% endblock %}
+
+
+
